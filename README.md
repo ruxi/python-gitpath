@@ -20,3 +20,11 @@ print(gitpath.abspath('setup.py'))
 
 Will give you:
 `/home/maxnoe/python-gitpath/setup.py`
+
+---
+
+Installation 
+
+```bash
+test
+```
