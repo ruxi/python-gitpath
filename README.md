@@ -26,5 +26,5 @@ Will give you:
 Installation 
 
 ```bash
-test
+pip install git+https://github.com/ruxi/python-gitpath.git
 ```
