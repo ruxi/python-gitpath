@@ -4,12 +4,19 @@ import os.path
 
 
 @lru_cache(maxsize=1)
-def root():
-    ''' returns the absolute path of the repository root '''
+def root(raise_error = False):
+    ''' returns the absolute path of the repository root 
+    
+    raise_error: False (default). If True, will catch error if not a gitpath
+    '''
     try:
         base = check_output(['git', 'rev-parse', '--show-toplevel'])
     except CalledProcessError:
-        raise IOError('Current working directory is not a git repository')
+        if raise_error:
+            raise IOError('Current working directory is not a git repository')
+        else:
+            print('Current working directory is not a git repository')
+            return False
     return base.decode('utf-8').strip()
 
 
